@@ -8,6 +8,12 @@ variable "subnet_count" {
   default = 2
 }
 
+variable "private_subnet_offset" {
+  description = "Number of subnets to offset for private subnets from public subnets."
+  default = 100
+}
+
+
 variable "name" {
     description = "Name of the VPC"
     default = "my-vpc"
