@@ -1,3 +1,8 @@
+provider "aws" {
+  region = "eu-central-1"
+}
+
+
 data "aws_availability_zones" "all" {} 
 
 resource "null_resource" "public_subnets" {
