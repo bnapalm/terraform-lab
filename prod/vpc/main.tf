@@ -3,13 +3,17 @@ data "aws_availability_zones" "all" {}
 resource "null_resource" "public_subnets" {
     count = var.subnet_count
 
-    cidr = cidrsubnet(var.cidr, 8, (count.index + 1))
+    triggers = {
+      cidr = cidrsubnet(var.cidr, 8, (count.index + 1))
+    }
 }
 
 resource "null_resource" "private_subnets" {
     count = var.subnet_count
 
-    cidr = cidrsubnet(var.cidr, 8, (count.index + var.private_subnet_offset + 1))
+    triggers = {
+      cidr = cidrsubnet(var.cidr, 8, (count.index + var.private_subnet_offset + 1))
+    }
 }
 
 module "vpc" {
