@@ -23,8 +23,8 @@ module "vpc" {
     cidr = var.cidr
 
     azs = data.aws_availability_zones.all.zone_ids
-    private_subnets = null_resource.private_subnets[*].cidr
-    public_subnets = null_resource.public_subnets[*].cidr
+    private_subnets = null_resource.private_subnets[*].triggers.cidr
+    public_subnets = null_resource.public_subnets[*].triggers.cidr
 
     enable_nat_gateway = true
 
