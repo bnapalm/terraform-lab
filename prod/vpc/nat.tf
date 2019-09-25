@@ -17,7 +17,6 @@ resource "aws_nat_gateway" "nat-gw" {
   depends_on = [aws_internet_gateway.main-igw]
 }
 
-
 # Route Tables for NAT
 resource "aws_route_table" "main-private" {
   count  = var.SUBNET_COUNT
@@ -32,7 +31,6 @@ resource "aws_route_table" "main-private" {
     Name = "main-private-${count.index + 1}"
   }
 }
-
 
 # Route Associations Private
 resource "aws_route_table_association" "main-private-a" {
