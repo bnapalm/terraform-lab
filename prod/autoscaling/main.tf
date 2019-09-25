@@ -36,7 +36,7 @@ resource "aws_launch_configuration" "example-launchconfig" {
 
 resource "aws_autoscaling_group" "example-autoscaling" {
   name                      = "example-autoscaling"
-  vpc_zone_identifier       = data.terraform_remote_state.vpc.outputs.public-subnet-ids
+  vpc_zone_identifier       = data.terraform_remote_state.vpc.outputs.public_subnet_ids
   launch_configuration      = aws_launch_configuration.example-launchconfig.name
   min_size                  = 1
   max_size                  = 4
